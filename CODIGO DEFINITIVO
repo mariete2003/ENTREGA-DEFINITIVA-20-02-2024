@@ -1,0 +1,53 @@
+PROGRAMA1.SH
+nano programa1.sh
+#!/bin/bash
+
+echo "Parametro 1: $1"
+echo "Parametro 2: $2"
+echo "Parametro 3: $3"
+
+echo "Vamos a crear un ficjero con el parametro 1"
+mkdir $1
+echo "Vamos a crear un fichero con el parametro 2"
+touch $2
+
+EJECUCIÓN: bash programa1.sh param1 param2 param3
+
+
+PROGRAMA2.SH
+#!/bin/bash
+
+menu() {
+	clear
+	echo "MENU PRINCIPAL"
+	echo "--------------"
+	echo "1. Crear directorio"
+	echo "2. Borrar directorio"
+	echo "3. Crear fichero"
+	echo " "
+}
+
+menu
+echo "Elegir opcion? "
+read opcion
+case $opcion in
+	1) echo "Introduzca directorio"; read directorio; mkdir $directorio  ;;
+	2) echo "Introduzca directorio a borrar"; read directorio; rmdir $directorio ;;
+	3) echo "Introduzca fichero a crear"; read fichero; touch $fichero ;;
+esac
+
+EJECUCIÓN: bash programa2.sh
+
+
+PROGRAMA3.SH
+#!/bin/bash
+
+echo "Script para crear ficheros y carpetas"
+echo "Directorio a crear? "
+read directorio
+mkdir $directorio
+echo "Fichero a crear? "
+read fichero
+touch $fichero
+
+EJECUCIÓN: bash programa3.sh
